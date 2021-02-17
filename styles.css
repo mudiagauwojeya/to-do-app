@@ -45,10 +45,14 @@ ul {
 	list-style-type: none;
 	margin: 5rem 0;
 	padding-left: 6rem;
-	text-align: left;
 }
 
 li {
+	display: block;
+	text-align: left;
+}
+
+button {
 	display: block;
 }
 
