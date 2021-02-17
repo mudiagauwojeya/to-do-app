@@ -56,14 +56,9 @@ const onSearch = (event) => {
 				item.classList.remove("filter");
 			});
 	}
-	// if (searchValue.length === 0) {
-	// 	if (!hasRendered) {
-	// 		if (event.keyCode === 8 || event.code === "Backspace") {
-	// 			render(newLists, true);
-	// 			hasRendered = true;
-	// 		}
-	// 	}
-	// }
+	if (searchValue.length === 0) {
+		newLists.forEach((item) => item.classList.remove("filter"));
+	}
 };
 
 if (todos.childElementCount === 0) {
