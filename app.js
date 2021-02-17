@@ -81,8 +81,14 @@ if (todos.childElementCount === 0) {
 const onDelete = (event) => {
 	if (event.toElement.nodeName === "INPUT") {
 		const checkbox = event.toElement;
+		const span = checkbox.nextElementSibling;
 		if (checkbox.checked) {
 			checkbox.parentElement.remove();
+			newLists.map((li, index) => {
+				if (li.innerText === span.innerText) {
+					newLists.splice(index, 1);
+				}
+			});
 		}
 	}
 };
