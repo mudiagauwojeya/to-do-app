@@ -6,7 +6,8 @@
 
 :root {
 	--color-primary: #15505a;
-	--color-secondary: #18c5f0;
+	--color-secondary: #cff0f8;
+	--color-tertiary: #18c5f0;
 	--color-text: #faebd7;
 	font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 	font-size: 62.5%;
@@ -27,13 +28,14 @@ h1 {
 }
 
 :is(input, ul) {
-	width: 40rem;
+	width: 55rem;
 }
 
 input {
 	appearance: none;
 	border: none;
 	border-radius: 0.5rem;
+	display: inline-block;
 	font-family: inherit;
 	font-size: inherit;
 	padding: 1.2rem;
@@ -52,7 +54,9 @@ ul {
 }
 
 li {
+	background-color: var(--color-tertiary);
 	display: block;
+	padding: 1.5rem;
 }
 
 button {
