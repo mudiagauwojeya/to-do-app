@@ -41,6 +41,17 @@ input:focus {
 	outline: none;
 }
 
+ul {
+	list-style-type: none;
+	margin: 5rem 0;
+	padding-left: 6rem;
+	text-align: left;
+}
+
+li {
+	display: block;
+}
+
 .container {
 	margin: 9rem auto 0;
 	padding: 0 20rem;
