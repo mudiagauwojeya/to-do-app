@@ -78,5 +78,15 @@ if (todos.childElementCount === 0) {
 	render(demoLists, true);
 }
 
+const onDelete = (event) => {
+	if (event.toElement.nodeName === "INPUT") {
+		const checkbox = event.toElement;
+		if (checkbox.checked) {
+			checkbox.parentElement.remove();
+		}
+	}
+};
+
 form.addEventListener("submit", onAdd);
 searchInput.addEventListener("keyup", onSearch);
+todos.addEventListener("click", onDelete);
