@@ -13,17 +13,23 @@ const newLists = [];
 let filteredList = [];
 let hasRendered = false;
 
-const onAdd = (event) => {
-	event.preventDefault();
+const createListItem = () => {
 	const li = document.createElement("li");
 	const checkbox = document.createElement("input");
 	checkbox.setAttribute("type", "checkbox");
 	const span = document.createElement("span");
+	li.prepend(checkbox);
+	li.append(span);
+
+	return li;
+};
+
+const onAdd = (event) => {
+	event.preventDefault();
 	const item = form.item.value.trim();
 	if (item.length) {
-		li.prepend(checkbox);
-		li.append(span);
-		span.textContent = item;
+		const li = createListItem();
+		li.querySelector("span").textContent = item;
 		newLists.push(li);
 		todos.append(li);
 		form.reset();
@@ -38,10 +44,10 @@ const render = (items, demo = false) => {
 	}
 
 	items.forEach((item) => {
-		const list = document.createElement("li");
-		list.textContent = item.text;
-		newLists.push(list);
-		todos.appendChild(list);
+		const li = createListItem();
+		li.querySelector("span").textContent = item.text;
+		newLists.push(li);
+		todos.appendChild(li);
 	});
 };
 
