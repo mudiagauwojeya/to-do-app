@@ -54,9 +54,23 @@ ul {
 }
 
 li {
-	background-color: var(--color-tertiary);
+	border: 1px solid var(--color-secondary);
 	display: block;
 	padding: 1.5rem;
+}
+
+:not(li:last-of-type) {
+	border-bottom: none;
+}
+
+li:first-of-type {
+	border-top-right-radius: 0.5rem;
+	border-top-left-radius: 0.5rem;
+}
+
+li:last-of-type {
+	border-bottom-right-radius: 0.5rem;
+	border-bottom-left-radius: 0.5rem;
 }
 
 button {
@@ -67,4 +81,8 @@ button {
 	margin: 9rem auto 0;
 	padding: 0 20rem;
 	width: 100%;
+}
+
+.filter {
+	display: none;
 }
