@@ -16,11 +16,13 @@ let hasRendered = false;
 const onAdd = (event) => {
 	event.preventDefault();
 	const li = document.createElement("li");
-	const item = form.item.value;
-	li.textContent = item;
-	newLists.push(li);
-	todos.append(li);
-	form.reset();
+	const item = form.item.value.trim();
+	if (item.length) {
+		li.textContent = item;
+		newLists.push(li);
+		todos.append(li);
+		form.reset();
+	}
 };
 
 const render = (items, demo = false) => {
