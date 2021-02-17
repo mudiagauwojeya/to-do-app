@@ -16,9 +16,13 @@ let hasRendered = false;
 const onAdd = (event) => {
 	event.preventDefault();
 	const li = document.createElement("li");
+	const checkbox = document.createElement("checkbox");
+	const span = document.createElement("span");
+	li.insertAdjacentElement("afterbegin", checkbox);
+	li.insertAdjacentElement("beforeend", span);
 	const item = form.item.value.trim();
 	if (item.length) {
-		li.textContent = item;
+		span.textContent = item;
 		newLists.push(li);
 		todos.append(li);
 		form.reset();
