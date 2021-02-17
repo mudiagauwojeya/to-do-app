@@ -26,6 +26,10 @@ h1 {
 	text-transform: uppercase;
 }
 
+:is(input, ul) {
+	width: 40rem;
+}
+
 input {
 	appearance: none;
 	border: none;
@@ -33,7 +37,6 @@ input {
 	font-family: inherit;
 	font-size: inherit;
 	padding: 1.2rem;
-	width: 40rem;
 }
 
 input:focus {
@@ -42,14 +45,14 @@ input:focus {
 }
 
 ul {
+	display: inline-block;
 	list-style-type: none;
 	margin: 5rem 0;
-	padding-left: 6rem;
+	text-align: left;
 }
 
 li {
 	display: block;
-	text-align: left;
 }
 
 button {
