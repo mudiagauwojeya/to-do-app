@@ -1,0 +1,74 @@
+const searchInput = document.getElementById("search");
+const todos = document.querySelector(".list");
+const form = document.querySelector("form");
+const btn = form.querySelector("button");
+
+const demoLists = [
+	{ text: "Practice Javascript" },
+	{ text: "Contribute to Joey" },
+	{ text: "Improve perf for 360" },
+];
+
+const newLists = [];
+let filteredList = [];
+let hasRendered = false;
+
+const onAdd = (event) => {
+	event.preventDefault();
+	const li = document.createElement("li");
+	const item = form.item.value;
+	li.textContent = item;
+	newLists.push(li);
+	todos.append(li);
+	form.reset();
+};
+
+const render = (items, demo = false) => {
+	if (!demo) {
+		items.forEach((item) => {
+			todos.append(item);
+		});
+	}
+
+	items.forEach((item) => {
+		const list = document.createElement("li");
+		list.textContent = item.text;
+		newLists.push(list);
+		todos.appendChild(list);
+	});
+};
+
+const onSearch = (event) => {
+	const searchValue = event.target.value.trim().toLowerCase();
+	if (searchValue) {
+		hasRendered = false;
+		filteredList = newLists
+			.filter(
+				(item) => !item.textContent.toLowerCase().includes(searchValue)
+			)
+			.forEach((item) => {
+				item.classList.add("filter");
+			});
+
+		filteredList = newLists
+			.filter((item) => item.textContent.toLowerCase().includes(searchValue))
+			.forEach((item) => {
+				item.classList.remove("filter");
+			});
+	}
+	// if (searchValue.length === 0) {
+	// 	if (!hasRendered) {
+	// 		if (event.keyCode === 8 || event.code === "Backspace") {
+	// 			render(newLists, true);
+	// 			hasRendered = true;
+	// 		}
+	// 	}
+	// }
+};
+
+if (todos.childElementCount === 0) {
+	render(demoLists, true);
+}
+
+form.addEventListener("submit", onAdd);
+searchInput.addEventListener("keyup", onSearch);
